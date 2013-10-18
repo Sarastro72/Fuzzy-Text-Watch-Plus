@@ -113,7 +113,7 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
   size_t remaining = length;
   memset(words, 0, length);
   // Fuzzy time
-  minutes = (minutes + 3) / 5 * 5;
+  minutes = (minutes + 2) / 5 * 5;
   // Handle hour wrapping
   if (minutes > 30) hours++;
   hours += 12; // If hours == 0
