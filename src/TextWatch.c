@@ -2,7 +2,7 @@
 #include "pebble_app.h"
 #include "pebble_fonts.h"
 
-#include "num2words-en.h"
+#include "num2words-es.h"
 
 #define DEBUG 0
 
