@@ -65,7 +65,7 @@ static const char* const TENSPLUS[] = {
 
 #define MAX_LEN 7
 
-static size_t append_number(char* words, int num, bool plus = false) {
+static size_t append_number(char* words, int num, int plus) {
   int tens_val = num / 10 % 10;
   int ones_val = num % 10;
 
@@ -123,7 +123,7 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
   }
 
   remaining -= append_string(words, remaining, "*"); // Make hours bold
-  remaining -= append_number(words, hours);
+  remaining -= append_number(words, hours,0);
   remaining -= append_string(words, remaining, " ");
 
   // Add o'clock to whole hours
@@ -152,7 +152,7 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
     case 20:
       remaining -= append_string(words, remaining, PAST);
       remaining -= append_string(words, remaining, " ");
-      remaining -= append_number(words, minutes);
+      remaining -= append_number(words, minutes,0);
       remaining -= append_string(words, remaining, " ");
       break;
     case 15:
@@ -164,9 +164,9 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
     case 25:
       remaining -= append_string(words, remaining, PAST);
       remaining -= append_string(words, remaining, " ");    
-      remaining -= append_number(words, 20, true);
+      remaining -= append_number(words, 20, 1);
       remaining -= append_string(words, remaining, " ");
-      remaining -= append_number(words, 5);
+      remaining -= append_number(words, 5,0);
       remaining -= append_string(words, remaining, " ");    
       break;
     case 30:
@@ -178,9 +178,9 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
     case 35:
       remaining -= append_string(words, remaining, TO);
       remaining -= append_string(words, remaining, " ");    
-      remaining -= append_number(words, 25, true);
+      remaining -= append_number(words, 25, 1);
       remaining -= append_string(words, remaining, " ");
-      remaining -= append_number(words, 5);
+      remaining -= append_number(words, 5,0);
       remaining -= append_string(words, remaining, " ");    
       break;
     case 40:
@@ -188,7 +188,7 @@ void time_to_words(int hours, int minutes, char* words, size_t length) {
     case 55:
       remaining -= append_string(words, remaining, TO);
       remaining -= append_string(words, remaining, " ");
-      remaining -= append_number(words, 60 - minutes);
+      remaining -= append_number(words, 60 - minutes,0);
       remaining -= append_string(words, remaining, " ");
       break;
     case 45:
