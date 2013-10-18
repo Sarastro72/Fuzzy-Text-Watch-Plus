@@ -51,8 +51,8 @@ static const char* const TENS[] = {
 
 static const char* const TENSPLUS[] = {
   "",
-  "dieci",
-  "veinti",
+  "dieci-",
+  "veinti-",
   "treinta y ",
   "cuarenta y ",
   "cincuenta y ",
@@ -83,13 +83,13 @@ static size_t append_number(char* words, int num, int plus) {
       strcat(words, TENSPLUS[tens_val]);
       len += strlen(TENSPLUS[tens_val]);
     }
-  }
+  } else {
 
-  if (ones_val > 0 || num == 0) {
-    strcat(words, ONES[ones_val]);
-    len += strlen(ONES[ones_val]);
+    if (ones_val > 0 || num == 0) {
+      strcat(words, ONES[ones_val]);
+      len += strlen(ONES[ones_val]);
+    }
   }
-
   if (len > MAX_LEN)
   {
     int fullSize = strlen(words);
