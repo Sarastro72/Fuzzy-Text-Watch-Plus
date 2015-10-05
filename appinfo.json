@@ -8,6 +8,7 @@
   "watchapp": {
     "watchface": true
   },
+  "capabilities": [ "configurable" ],
   "appKeys": {},
   "resources": {
     "media": []
