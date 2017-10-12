@@ -6,7 +6,7 @@ Pebble.addEventListener('ready', function() {
 });
 
 Pebble.addEventListener('showConfiguration', function() {
-  var url = 'http://fuzzytextconfig-sarastro.rhcloud.com/config/index.html?v=' + version;
+  var url = 'http://www.matb.se/pebble-config/config/index.html?v=' + version;
   //var url = 'file:///Users/mattias/gitroot/Fuzzy-Text-watch-Plus/config/index.html?v=' + version;
 
   if (!hasColor()) { // Black n white
