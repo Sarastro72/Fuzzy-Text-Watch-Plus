@@ -44,13 +44,13 @@ int messageTime = 3;
 // 2 = flick wrist (Y-axis)
 // 3 = Shake up/down (Z-axis)
 // 4 = Any shake
-int dateGesture = GESTURE_OFF;
+int dateGesture = GESTURE_ANY;
 
 // Notify when BT connection is lost?
 // 0 = off
 // 1 = text and light only
 // 2 = on
-int bt_lost_notification = BT_NOTIFY_OFF;
+int bt_lost_notification = BT_NOTIFY_ON;
 
 // Screen resolution. Set in the init function.
 int xres;
@@ -631,7 +631,7 @@ void readPersistedState() {
 	}
 
 	if (persist_exists(KEY_BT_NOTIFICATION)) {
-		set_gesture(persist_read_int(KEY_BT_NOTIFICATION));
+		set_bt_lost_notification(persist_read_int(KEY_BT_NOTIFICATION));
 	}
 
 	// Set default colors
